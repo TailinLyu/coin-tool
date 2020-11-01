@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './App.css';
 import {Route, Switch, BrowserRouter} from 'react-router-dom'
-import ExplorerPage from './page/ExplorerPage'
+import ExplorerPage from './page/ExplorePage'
 const App = () => {
 
 		return (

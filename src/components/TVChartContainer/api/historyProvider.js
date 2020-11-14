@@ -45,6 +45,8 @@ export default {
 							var lastBar = bars[bars.length - 1]
 							history[symbolInfo.name] = {lastBar: lastBar}
 						}
+						bars.splice(1000,500)
+						//console.log(bars)
 					return bars
 				} else {
 					return []

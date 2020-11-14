@@ -60,7 +60,7 @@ export class TVChartContainer extends React.PureComponent {
 		));
 	
 		widget.onChartReady(() => {
-		  console.log("Chart has loaded!");
+		 // console.log("Chart has loaded!");
 		});
 	  }
 

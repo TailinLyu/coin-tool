@@ -12,7 +12,7 @@ function getLanguageFromURL() {
 export class TVChartContainer extends React.PureComponent {
 
 	static defaultProps = {
-		symbol: 'Coinbase:BTC/USD',
+		symbol: 'USDC/ETH',
 		interval: '15',
 		containerId: 'tv_chart_container',
 		libraryPath: '/charting_library/',

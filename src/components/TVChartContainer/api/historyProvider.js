@@ -1,7 +1,7 @@
 var rp = require('request-promise').defaults({json: true})
 
 // const api_root = 'https://min-api.cryptocompare.com'
-const api_root = 'http://localhost:8081/api/pair-explorer';
+const api_root = 'https://morning-cliffs-45456.herokuapp.com/';
 const history = {}
 
 export default {
@@ -24,7 +24,7 @@ export default {
 
         return rp({
                 url: `${api_root}/${pairId}${url}`,
-                qs,
+                // qs,
             })
             .then(data => {
                 console.log({data})

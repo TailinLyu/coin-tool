@@ -55,19 +55,20 @@ export default {
 		//console.log('=====getBars running')
 		// console.log('function args',arguments)
 		// console.log(`Requesting bars between ${new Date(from * 1000).toISOString()} and ${new Date(to * 1000).toISOString()}`)
-		historyProvider.getBars(symbolInfo, resolution, from, to, firstDataRequest)
-		.then(bars => {
-			console.log('bars')
-			console.log(bars)
-			if (bars.length) {
-				onHistoryCallback(bars, {noData: false})
-			} else {
-				onHistoryCallback(bars, {noData: true})
-			}
-		}).catch(err => {
-			//console.log({err})
-			onErrorCallback(err)
-		})
+			historyProvider.getBars(symbolInfo, resolution, from, to, firstDataRequest)
+			.then(bars => {
+				console.log('bars')
+				console.log(bars)
+				if (bars.length) {
+					onHistoryCallback(bars, {noData: false})
+				} else {
+					onHistoryCallback(bars, {noData: true})
+				}
+			}).catch(err => {
+				//console.log({err})
+				onErrorCallback(err)
+			})
+
 
 
 	},

@@ -28,7 +28,7 @@ export default {
                 qs,
             })
             .then(data => {
-                console.log({data})
+
 				if (data.Response && data.Response === 'Error') {
 					console.log('CryptoCompare API error:',data.Message)
 					return []

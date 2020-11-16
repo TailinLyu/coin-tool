@@ -1,7 +1,7 @@
 var rp = require('request-promise').defaults({json: true})
 
 // const api_root = 'https://min-api.cryptocompare.com'
-const api_root = 'http://localhost:8081/api/pair-explorer/0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc';
+const api_root = 'http://localhost:8081/api/pair-explorer';
 const history = {}
 
 export default {
@@ -9,13 +9,12 @@ export default {
 
     getBars: function(symbolInfo, resolution, from, to, first, limit) {
 		var split_symbol = symbolInfo.name.split(/[:/]/)
-			// const url = resolution === 'D' ? '/data/histoday' : resolution >= 60 ? '/data/histohour' : '/data/histominute'
-			console.log('resolution: ', resolution)
+			const pairId = symbolInfo.description;
 			const url = resolution === '1D' ? '/kline?interval=1440&ETH=false' : resolution == 60  ? '/kline?interval=60&ETH=false' : resolution == 15 ? '/kline?interval=15&ETH=false' : resolution == 5 ?   '/kline?interval=5&ETH=false': '/kline?interval=1&ETH=false'
 			const qs = {
 					// e: split_symbol[0],
-					fsym: "USDC",
-					tsym: "ETH",
+					fsym: split_symbol[0],
+					tsym: split_symbol[1],
 					toTs:  to ? to : '',
 					limit: 1000
 					// limit: limit ? limit : 2000, 
@@ -24,7 +23,7 @@ export default {
 			// console.log({qs})
 
         return rp({
-                url: `${api_root}${url}`,
+                url: `${api_root}/${pairId}${url}`,
                 qs,
             })
             .then(data => {

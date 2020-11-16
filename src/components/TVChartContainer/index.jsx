@@ -10,7 +10,6 @@ function getLanguageFromURL() {
 }
 
 export class TVChartContainer extends React.PureComponent {
-
 	static defaultProps = {
 		symbol: 'USDC/ETH',
 		interval: '15',
@@ -20,15 +19,19 @@ export class TVChartContainer extends React.PureComponent {
 		chartsStorageApiVersion: '1.1',
 		clientId: 'tradingview.com',
 		userId: 'public_user_id',
-		fullscreen: true,
+		fullscreen: false,
 		autosize: false,
+		width: '166.5%',
+		height: 1000,
 		studiesOverrides: {},
 	};
-
 	componentDidMount() {
 		const widgetOptions = {
 		  debug: false,
 		  symbol: this.props.symbol,
+		  update: this.props.update,
+		  width: this.props.width,
+		  height: this.props.height,
 		  datafeed: Datafeed,
 		  interval: this.props.interval,
 		  container_id: this.props.containerId,
@@ -65,6 +68,7 @@ export class TVChartContainer extends React.PureComponent {
 	  }
 
 	render() {
+		console.log('symbol: ', this.props.symbol)
 		return (
 			<div
 				id={ this.props.containerId }

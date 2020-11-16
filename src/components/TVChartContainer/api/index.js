@@ -20,15 +20,16 @@ export default {
 		//console.log('======resolveSymbol running')
 		// console.log('resolveSymbol:',{symbolName})
 		var split_data = symbolName.split(/[:/]/)
-		// console.log({split_data})
+		console.log("split")
+		console.log(split_data)
 		var symbol_stub = {
-			name: symbolName,
-			description: '',
+			name: `${split_data[0]}/${split_data[1]}` ,
+			description: split_data[2],
 			type: 'crypto',
 			session: '24x7',
 			timezone: 'Etc/UTC',
 			ticker: symbolName,
-			exchange: split_data[0],
+			// exchange: split_data[0],
 			minmov: 1,
 			pricescale: 100000000,
 			has_intraday: true,
@@ -38,8 +39,8 @@ export default {
 			data_status: 'streaming',
 		}
 
-		if (split_data[1].match(/USD|EUR|JPY|AUD|GBP|KRW|CNY/)) {
-			symbol_stub.pricescale = 100
+		if (split_data[1].match(/USD|ETH/)) {
+			symbol_stub.pricescale = 1000000
 		}
 		setTimeout(function() {
 			onSymbolResolvedCallback(symbol_stub)

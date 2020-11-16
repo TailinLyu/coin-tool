@@ -8,7 +8,7 @@ const App = () => {
 			<div>
 				<BrowserRouter>
 				<Switch>
-					<Route path="/pair-explorer/" component={ExplorerPage}/>
+					<Route path="/pair-explorer/:id" component={ExplorerPage}/>
 				</Switch>
 				</BrowserRouter>
 			</div>

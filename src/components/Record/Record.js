@@ -54,8 +54,8 @@ return (<strong style={{color: 'green' }}>
     const theme = useTheme();
       return (
           <div style={{height: 1000}}>
-                <div display='flex'>
-                    <Button variant="contained" color="primary">Trade History</Button>
+                <div display='flex' style={{font: 'normal normal bold 48px/64px P22 Mackinac Pro', color: '#484848'}}>
+                Trade History
                 </div>
                 <div style={{backgroundColor: 'white', height: 700}}>
                 <DataGrid className={classes.row} rows={rows} columns={columns} />

@@ -1,7 +1,7 @@
-var rp = require('request-promise').defaults({json: true})
+import axios from 'axios'
 
 // const api_root = 'https://min-api.cryptocompare.com'
-const api_root = 'https://morning-cliffs-45456.herokuapp.com/';
+const api_root = 'https://morning-cliffs-45456.herokuapp.com//api/pair-explorer';
 const history = {}
 
 export default {
@@ -22,10 +22,11 @@ export default {
 				}
 			// console.log({qs})
 
-        return rp({
-                url: `${api_root}/${pairId}${url}`,
-                // qs,
-            })
+        return axios.get(`${api_root}/${pairId}${url}`,{
+			headers: {
+		'Content-Type': 'application/json',
+		'accept': '*/*'
+	}})
             .then(data => {
                 console.log({data})
 				if (data.Response && data.Response === 'Error') {

@@ -29,7 +29,6 @@ export class TVChartContainer extends React.PureComponent {
 		const widgetOptions = {
 		  debug: false,
 		  symbol: this.props.symbol,
-		  update: this.props.update,
 		  width: this.props.width,
 		  height: this.props.height,
 		  datafeed: Datafeed,

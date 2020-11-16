@@ -8,6 +8,8 @@ export default {
 	history: history,
 
     getBars: function(symbolInfo, resolution, from, to, first, limit) {
+		console.log("Info")
+		console.log(symbolInfo)
 		var split_symbol = symbolInfo.name.split(/[:/]/)
 			const pairId = symbolInfo.description;
 			const url = resolution === '1D' ? '/kline?interval=1440&ETH=false' : resolution == 60  ? '/kline?interval=60&ETH=false' : resolution == 15 ? '/kline?interval=15&ETH=false' : resolution == 5 ?   '/kline?interval=5&ETH=false': '/kline?interval=1&ETH=false'
@@ -21,7 +23,6 @@ export default {
 					// aggregate: 1//resolution 
 				}
 			// console.log({qs})
-
         return rp({
                 url: `${api_root}/${pairId}${url}`,
                 qs,
@@ -33,8 +34,6 @@ export default {
 					return []
 				}
 				if (data.length) {
-					console.log('yes we have length')
-					console.log(`Actually returned: ${new Date(data[0][0] * 1000).toISOString()} - ${new Date(data[data.length-1][1] * 1000).toISOString()}`)
 					var bars = data.map(el => {
 						return {
 							// time: el.time * 1000, //TradingView requires bar time in ms

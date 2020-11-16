@@ -11,13 +11,16 @@ import './Explorer.css'
 // style={{paddingTop: 30, 
 				// border: '1px solid black', 
 				// marginLeft: '10%',
-        		// marginRight: '10%'}}>
+				// marginRight: '10%'}}>
+				
+				
 const ExplorerPage = () => {
 	const mystyle={
 		backgroundColor: 'black'
 	}
 	const [pairInfo, setPairInfo] = useState({})
 	const [tradingHistory, setTradingHistory] = useState([])
+	const [delay, setDelay] = useState(30000)
 	const { id } = useParams()
 	// console.log("pairId: ", pairId)
 	const api_root = 'https://morning-cliffs-45456.herokuapp.com//api/pair-explorer'
@@ -33,9 +36,10 @@ const ExplorerPage = () => {
 				.then(res => {
 					setPairInfo(res.data.pairInfo)
 					setTradingHistory(res.data.tradingHistory.swapInfoList)
-	})
+				})
 	}
 		fetchData()
+		setInterval(fetchData, delay)
 	}, [])
 	console.log(pairInfo)
 		return (
@@ -52,7 +56,7 @@ const ExplorerPage = () => {
 							<Info pairInfo={pairInfo} className='leftBox' style={{backgroundColor: 'black'}}/>
 						</Box>
 						<Box display="flex">
-							<TVChartContainer symbol={`${pairInfo.token1Symbol}/USD/${id}/${new Date()}`}/>
+							<TVChartContainer symbol={`${pairInfo.token1Symbol ? pairInfo.token1Symbol : ''}/USD/${id}/${new Date()}`}/>
 						</Box>
 						<Box style={{marginTop: 30}}>
 						<Record tradingHistory={tradingHistory} style={{paddingTop: 30, border: '1px solid black'}}/>

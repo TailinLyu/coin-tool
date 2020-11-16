@@ -32,8 +32,9 @@ const handleInputChange = (input) => {
   return (
     <div>
         <TextField
-          placeholder="abcdefg"
+          placeholder="enter pair name/ token name/ token contract"
           onChange={e => handleInputChange(e.target.value)}
+          style={{width:'20%'}}
         />
         <Button 
           primary style={{color: 'blue'}}

@@ -69,9 +69,11 @@ export default {
 			onErrorCallback(err)
 		})
 
+
 	},
 	subscribeBars: (symbolInfo, resolution, onRealtimeCallback, subscribeUID, onResetCacheNeededCallback) => {
 		//console.log('=====subscribeBars runnning')
+		
 	},
 	unsubscribeBars: subscriberUID => {
 		//console.log('=====unsubscribeBars running')

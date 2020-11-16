@@ -22,7 +22,8 @@ export default {
 				}
 			// console.log({qs})
 
-        return axios.get(`${api_root}/${pairId}${url}`,{
+		return axios.get(`${api_root}/${pairId}${url}`,{
+			qs,
 			headers: {
 		'Content-Type': 'application/json',
 		'accept': '*/*'

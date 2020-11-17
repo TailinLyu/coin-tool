@@ -2,8 +2,8 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     totalBox: {
-        // marginLeft: '10%',
-        // marginRight: '10%', 
+        marginLeft: '10%',
+        marginRight: '10%', 
         width: '100%', 
         letterSpacing: 0,
         opacity: 1,

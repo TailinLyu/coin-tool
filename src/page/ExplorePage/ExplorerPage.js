@@ -45,19 +45,18 @@ const ExplorerPage = () => {
 	}, [])
 	console.log(pairInfo)
 		return (
-
 			<div>
 				{
 					(!tradingHistory.length || !pairInfo) ? (<div> This pair cannot be found or service broken</div>) :
 				
 					(<div>
-						<Box style={{paddingRight: 0, marginLeft: '35%'}}>
+						<Box style={{paddingRight: 0, marginLeft: '25%'}}>
 						<SearchBar></SearchBar>
 						</Box>
 						<Box display='flex'>
 							<Info pairInfo={pairInfo} className='leftBox' style={{backgroundColor: 'black'}}/>
 						</Box>
-						<Box display="flex">
+						<Box display="flex" style={{margin: '0 10% 0 10%'}}>
 							<TVChartContainer symbol={`${pairInfo.token1Symbol ? pairInfo.token1Symbol : ''}/USD/${id}/${time}`}/>
 						</Box>
 						<Box style={{marginTop: 30}}>

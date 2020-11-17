@@ -15,8 +15,6 @@ const Info = (info) => {
         setValue([pairInfo.token0Id, pairInfo.token0Name, pairInfo.totalLiquidity, pairInfo.reserve0, pairInfo.reserve1, pairInfo.txCount]); 
         setData({price: pairInfo.latestTradePriceUSD, val: pairInfo.latestTradePriceToken0, percent: pairInfo.changesIn24HrsToken0, type: 'ETH'})
     }, []);
-    console.log("pairInfo")
-    console.log(pairInfo)
     return(
         <Box className={classes.totalBox}>
             {/* <Button variant="contained" color="secondary" style={{}}>

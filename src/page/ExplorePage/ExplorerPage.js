@@ -48,7 +48,6 @@ const ExplorerPage = () => {
 			<div>
 				{
 					(!tradingHistory.length || !pairInfo) ? (<div> This pair cannot be found or service broken</div>) :
-				
 					(<div>
 						<Box style={{paddingRight: 0, marginLeft: '25%'}}>
 						<SearchBar></SearchBar>

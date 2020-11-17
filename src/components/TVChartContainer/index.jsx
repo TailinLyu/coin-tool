@@ -54,9 +54,9 @@ export class TVChartContainer extends React.PureComponent {
 		chartsStorageApiVersion: '1.1',
 		clientId: 'tradingview.com',
 		userId: 'public_user_id',
-		fullscreen: true,
-		autosize: true,
-		width: '166.5%',
+		fullscreen: false,
+		autosize: false,
+		width: '168%',
 		height: 1000,
 		studiesOverrides: {},
 	};

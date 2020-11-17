@@ -5,7 +5,7 @@ import { Box, Button } from '@material-ui/core';
 import useStyles from './Record.styles';
 
 const currencyFormatter = (value) => {
-  return (`$${value.toFixed(8)}`); 
+  return (`$${value.toFixed(6)}`); 
 }; 
 
 const typeFormatter = (value) => {
@@ -29,11 +29,17 @@ return (<strong style={{color: 'green' }}>
       valueFormatter: ({ value }) => currencyFormatter(value), 
       cellClassName: 'font-tabular-nums',
       },
-      { field: 'Price ETH', type: 'number', width: 280,  },
+      { field: 'Price ETH', type: 'number', width: 280,
+      valueFormatter: ({ value }) => currencyFormatter(value), 
+      cellClassName: 'font-tabular-nums',
+    },
       { field: 'Amount Token', type: 'number', width: 280,
-      valueFormatter: ({ value }) => Intl.NumberFormat('en-IN').format(value),
+      valueFormatter: ({ value }) => currencyFormatter(value), 
       cellClassName: 'font-tabular-nums',  },
-      { field: 'Total ETH', type: 'number', width: 280,  },
+      { field: 'Total ETH', type: 'number', width: 280, 
+      valueFormatter: ({ value }) => currencyFormatter(value), 
+      cellClassName: 'font-tabular-nums',
+    },
       // { field: 'Maker', width: 400},
     ];
     const rows = tradingHistory.tradingHistory.map((element,idx) => (

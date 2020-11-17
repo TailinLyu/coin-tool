@@ -27,7 +27,7 @@ const Info = (info) => {
                 </Box>
                 <Box className={classes.totalCol}>
                     <Box className={classes.leftCol}>Last traded price</Box>
-                    <Box className={classes.rightCol} style={pairInfo.changesIn24HrsUSD > 0 ? {color: 'green'} : {color: 'red'}}>{pairInfo.latestTradePriceUSD.toFixed(5)}USD</Box>
+                    <Box className={classes.rightCol} style={pairInfo.changesIn24HrsUSD > 0 ? {color: 'green'} : {color: 'red'}}>${pairInfo.latestTradePriceUSD.toFixed(5)}</Box>
                 </Box>
                 <Box className={classes.totalCol}>
                     <Box className={classes.leftCol}>24h change</Box>
@@ -35,15 +35,15 @@ const Info = (info) => {
                 </Box>
                 <Box className={classes.totalCol}>
                     <Box className={classes.leftCol}>24h high</Box>
-                    <Box className={classes.rightCol}>{pairInfo.highestPriceIn24HrsUSD.toFixed(5)}USD</Box>
+                    <Box className={classes.rightCol}>${pairInfo.highestPriceIn24HrsUSD.toFixed(5)}</Box>
                 </Box>
                 <Box className={classes.totalCol}>
                     <Box className={classes.leftCol}>24h low</Box>
-                    <Box className={classes.rightCol}>{pairInfo.lowestPriceIn24HrsUSD.toFixed(5)}USD</Box>
+                    <Box className={classes.rightCol}>${pairInfo.lowestPriceIn24HrsUSD.toFixed(5)}</Box>
                 </Box>
                 <Box className={classes.totalCol}>
                     <Box className={classes.leftCol}>24h volume</Box>
-                    <Box className={classes.rightCol}>{pairInfo.volumeIn24HrsUSD.toFixed(5)}$</Box>
+                    <Box className={classes.rightCol}>${pairInfo.volumeIn24HrsUSD.toFixed(5)}</Box>
                 </Box>
                
             </Box>
@@ -52,7 +52,7 @@ const Info = (info) => {
                 dataAttribute.map((i,idx) => (
                         <Box className={classes.totalCol} key={idx}>
                             <Box className={classes.leftCol}>{i}</Box>
-                            <Box className={classes.rightCol}>{value[idx]}</Box>
+                            <Box className={classes.rightCol}>{(idx >= 2 && idx <= 4) ? Number(value[idx]).toFixed(2) : value[idx]}</Box>
                         </Box>
     ))
             }
